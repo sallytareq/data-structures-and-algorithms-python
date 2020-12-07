@@ -17,6 +17,15 @@ Challenge - 06:
         - insert a node before the first node of a linked list
         - insert after a node in the middle of the linked list
         - insert a node after the last node of the linked list
+
+Challenge - 07:
+    Tests:
+        - k is greater than the length of the linked list
+        - k and the length of the list are the same
+        - k is not a positive integer
+        - the linked list is of a size 1
+        - k is in the middle of the linked list
+
 """
 from data_structures_and_algorithms.challenges.linked_list.linked_list import LinkedList, Node
 import pytest
@@ -75,6 +84,40 @@ def test_str(linked):
     actual = str(linked)
     expected = '{ 2 } -> { 8 } -> { 5 } -> { 4 } -> { 3 } -> { 9 } -> { 7 } -> { 1 } -> { 3 } -> NULL'
     assert expected == actual
+
+def test_k_greater(linked):
+    k = 10
+    actual = linked.kthFromEnd(k)
+    expected = "Invalid Input"
+    assert expected == actual
+
+def test_k_length(linked):
+    k = 9
+    actual = linked.kthFromEnd(k)
+    expected = 2
+    assert expected == actual
+
+def test_k_negative(linked):
+    k = -1
+    actual = linked.kthFromEnd(k)
+    expected = "Invalid Input"
+    assert expected == actual
+
+def test_k_middle(linked):
+    k = 4
+    actual = linked.kthFromEnd(k)
+    expected = 3
+    assert expected == actual
+
+def test_k_size_one():
+    lst = LinkedList()
+    lst.insert(3)
+    k = 1
+    actual = lst.kthFromEnd(k)
+    expected = 3
+    assert expected == actual
+
+
 
 
 @pytest.fixture

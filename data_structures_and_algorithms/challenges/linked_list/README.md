@@ -22,6 +22,10 @@ Creating node and a linked list class and then:
 * insertBefore(value, newVal) adds a new node immediately before the first value node
 * insertAfter(value, newVal) adds a new node immediately after the first value node
 
+**Challenge - 07:**
+
+* Create a method called kthFromEnd that takes the argument (k) and returns the node that is k from the end of the linked list.
+
 ## Approach & Efficiency
 
 I created a class which included the required methods.
@@ -39,3 +43,4 @@ Available methods:
 | `append(VALUE)` | adds a new node to the end of the list |
 | `insertAfter(value, newVal)` | adds a new node immediately after the first value node |
 | `insertBefore(value, newVal)` |  adds a new node immediately before the first value node |
+| `kthFromEnd(k)` | returns the node that is k from the end of the linked list |

@@ -13,6 +13,9 @@ Challenge - 06:
     - insertBefore(value, newVal) adds a new node immediately before the first value node
     - insertAfter(value, newVal) adds a new node immediately after the first value node 
 
+Challenge - 07:
+    - Create a method called kthFromEnd that takes the argument (k) and returns the node 
+      that is k from the end of the linked list.
 """
 class Node:
     def __init__(self, value):
@@ -110,6 +113,21 @@ class LinkedList:
             current.next = node
         LinkedList.links.insert(index, node.value)
         self.size += 1
+
+    def kthFromEnd(self,k):
+        if k < 0 or k > len(LinkedList.links):
+            return "Invalid Input"
+        if k == 1:
+            return self.head.value
+        
+        index = len(LinkedList.links)-k
+        counter = 0
+        current = self.head
+        while counter < index:
+            current = current.next
+            counter += 1
+        num = current.value
+        return num
 
 
 if __name__ == "__main__":
