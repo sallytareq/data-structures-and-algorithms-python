@@ -6,3 +6,4 @@
 1. [Array Shift](data_structures_and_algorithms/challenges/array_shift/array_shift.py)
 1. [Array Binary Search](data_structures_and_algorithms/challenges/array_binary_search/array_binary_search.py)
 1. [Singly Linked List](data_structures_and_algorithms/challenges/linked_list/linked_list.py)
+1. [Merging Linked List](data_structures_and_algorithms/challenges/ll_zip/ll_zip.py)
