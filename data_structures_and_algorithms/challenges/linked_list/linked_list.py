@@ -63,7 +63,6 @@ class LinkedList:
     def append(self, value):
         node = Node(value)
         if self.head == None:
-            node.previous = self.head
             self.head = node
 
         else:
