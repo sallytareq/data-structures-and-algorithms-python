@@ -8,6 +8,7 @@ class Stack:
     
     def __init__(self):
         self.top = None
+        self.size = 0
 
     def push(self, data):
         node = Node(data)
@@ -16,21 +17,22 @@ class Stack:
         else:
             node.next = self.top
             self.top = node
-    
+        self.size += 1
+
     def pop(self):
         try:
             popped = self.top
             self.top = self.top.next
-
-            return popped
+            self.size -= 1
+            return popped.value
         except:
-            return "The list is empty"
+            return "The Stack is empty"
 
     def peek(self):
         try: 
             return self.top.value
         except:
-            return "The list is empty"
+            return "The Stack is empty"
 
     def isEmpty(self):
         if self.top == None:
@@ -43,6 +45,7 @@ class Queue:
     
     def __init__(self):
         self.front = None
+        self.size = 0
 
     def enqueue(self, data):
         node = Node(data)
@@ -55,21 +58,22 @@ class Queue:
             current.next = node
             node.previous = current
             node.next = None
+        self.size += 1
     
     def dequeue(self):
         try:
             removed = self.front
             self.front = self.front.next
-
-            return removed
+            self.size -= 1
+            return removed.value
         except:
-            return "The list is empty"
+            return "The Queue is empty"
 
     def peek(self):
         try: 
             return self.front.value
         except:
-            return "The list is empty"
+            return "The Queue is empty"
 
     def isEmpty(self):
         if self.front == None:
