@@ -82,31 +82,80 @@ def test_includes_false(linked):
 
 def test_str(linked):
     actual = str(linked)
-    expected = '{ 2 } -> { 8 } -> { 5 } -> { 4 } -> { 3 } -> { 9 } -> { 7 } -> { 1 } -> { 3 } -> NULL'
+    print(actual)
+    expected = '{ 8 } -> { 5 } -> { 3 } -> { 7 } -> { 1 } -> NULL'
     assert expected == actual
 
-def test_k_greater(linked):
+
+
+# after and before:
+def test_before_head(before_after):
+    before_after.insertBefore(1,0)
+    actual = before_after.head.value
+    expected = 0
+    assert expected == actual
+
+def test_after_head(before_after):
+    before_after.insertAfter(1,10)
+    actual = before_after.head.next.value
+    expected = 10
+    assert expected == actual
+
+def test_after_five(before_after):
+    before_after.insertAfter(5,11)
+    actual = before_after.includes(11)
+    expected = True
+    assert expected == actual
+
+def test_before_seven(before_after):
+    before_after.insertBefore(7,12)
+    actual = before_after.includes(12)
+    expected = True
+    assert expected == actual
+
+def test_after_end(before_after):
+    before_after.insertAfter(9,13)
+    actual = before_after.includes(13)
+    expected = True
+    assert expected == actual
+
+
+
+#kthFromEnd
+def test_k_greater(kth):
     k = 10
-    actual = linked.kthFromEnd(k)
+    actual = kth.kthFromEnd(k)
     expected = "Invalid Input"
     assert expected == actual
 
-def test_k_length(linked):
+def test_k_length(kth):
     k = 9
-    actual = linked.kthFromEnd(k)
-    expected = 2
+    actual = kth.kthFromEnd(k)
+    expected = 1
     assert expected == actual
 
-def test_k_negative(linked):
+def test_k_negative(kth):
     k = -1
-    actual = linked.kthFromEnd(k)
+    actual = kth.kthFromEnd(k)
     expected = "Invalid Input"
     assert expected == actual
 
-def test_k_middle(linked):
+def test_k_middle(kth):
     k = 4
-    actual = linked.kthFromEnd(k)
-    expected = 3
+    actual = kth.kthFromEnd(k)
+    expected = 5
+    assert expected == actual
+
+def test_k_one(kth):
+    k = 1
+    actual = kth.kthFromEnd(k)
+    expected = 8
+    assert expected == actual
+
+def test_k_zero(kth):
+    k = 0
+    actual = kth.kthFromEnd(k)
+    expected = 9
     assert expected == actual
 
 def test_k_size_one():
@@ -120,18 +169,46 @@ def test_k_size_one():
 
 
 
+
 @pytest.fixture
 def linked():
     linked = LinkedList()
-    LinkedList.links = []
-    linked = LinkedList()
+    linked.links = []
     linked.insert(3)
     linked.insert(5)
     linked.insert(8)
     linked.append(7)
     linked.append(1)
-    linked.insertAfter(5,4)
-    linked.insertAfter(1,3)
-    linked.insertBefore(7,9)
-    linked.insertBefore(8,2)
+
     return linked
+
+@pytest.fixture
+def kth():
+    kth = LinkedList()
+    kth.links = []
+    kth.insert(1)
+    kth.append(2)
+    kth.append(3)
+    kth.append(4)
+    kth.append(5)
+    kth.append(6)
+    kth.append(7)
+    kth.append(8)
+    kth.append(9)
+    return kth
+
+@pytest.fixture
+def before_after():
+    before_after = LinkedList()
+    before_after.links = []
+    before_after.insert(1)
+    before_after.append(2)
+    before_after.append(3)
+    before_after.append(4)
+    before_after.append(5)
+    before_after.append(6)
+    before_after.append(7)
+    before_after.append(8)
+    before_after.append(9)
+    
+    return before_after
