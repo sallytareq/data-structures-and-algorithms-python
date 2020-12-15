@@ -6,8 +6,6 @@ class AnimalShelter:
         self.cat = Queue()
         self.dog = Queue()
         self.shelter = Queue()
-        self.dequeue_cat = False
-        self.dequeue_dog = False
 
     def enqueue(self,animal,name):
         if animal == "cat":
