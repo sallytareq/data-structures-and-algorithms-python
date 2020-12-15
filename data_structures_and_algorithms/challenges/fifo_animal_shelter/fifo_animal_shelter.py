@@ -6,17 +6,18 @@ class AnimalShelter:
         self.cat = Queue()
         self.dog = Queue()
         self.shelter = Queue()
-
+        self.dequeue_cat = False
+        self.dequeue_dog = False
 
     def enqueue(self,animal,name):
         if animal == "cat":
             self.cat.enqueue(name)
             self.shelter.enqueue(name)
-            print(f"added to cat: {animal} {name}")
+            
         elif animal == "dog":
             self.dog.enqueue(name)
             self.shelter.enqueue(name)
-            print(f"added to dog: {animal} {name}")
+         
         else: 
             return "Sorry! We do not accept animals that are not cat or dog"
     
@@ -30,7 +31,6 @@ class AnimalShelter:
                 self.shelter.dequeue()
             else: 
                 self.adjust(popped)
-            print(f"{pref} removed from cat")
 
         elif pref == "dog":
 
@@ -41,8 +41,6 @@ class AnimalShelter:
             else: 
                 self.adjust(popped)
 
-            print(f"{pref} removed from dog")
-
 
         elif pref == "shelter":
             popped = self.shelter.dequeue()
@@ -52,7 +50,6 @@ class AnimalShelter:
             elif popped == self.dog.front.value:
                 self.dog.dequeue()
 
-            print(f"{pref} removed")
 
         else:
             return "Invalid Input"
@@ -61,8 +58,30 @@ class AnimalShelter:
 
     def adjust(self, popped):
         current = self.shelter.front
-
+        counter = 1
+        temp = Queue()
         while current.next.value != popped:
             current = current.next
-        current.next = current.next.next
+            counter += 1
+        x = 0
+        while x in range(0,counter):
+            hold = self.shelter.dequeue()
+            temp.enqueue(hold)
+            x +=1
+        self.shelter.dequeue()
+        current = self.shelter.front
+        while current != None:
+            current = current.next
+            hold = self.shelter.dequeue()
+            temp.enqueue(hold)
+
+        temp_current = temp.front
+        while temp_current != None:
+            temp_next = temp.dequeue()
+            self.shelter.enqueue(temp_next)
+            temp_current = temp_current.next
+
+
+
+
 
