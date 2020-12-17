@@ -10,3 +10,5 @@
 1. [Stacks and Queues](data_structures_and_algorithms/challenges/stacks_and_queues/stacks_and_queues.py)
 1. [Queue With Stacks](data_structures_and_algorithms/challenges/queue_with_stacks/queue_with_stacks.py)
 1. [FIFO Animal Shelter](data_structures_and_algorithms/challenges/fifo_animal_shelter/fifo_animal_shelter.py)
+1. [Multi-bracket Validation](data_structures_and_algorithms/challenges/multi_bracket_validation/multi_bracket_validation.py)
+
