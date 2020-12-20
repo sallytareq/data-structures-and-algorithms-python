@@ -86,6 +86,16 @@ def test_max_val(bst):
     expected_1 = 24
     assert expected_1 == actual_1
 
+def test_max_val_with_init():
+    tree = BinarySearchTree(7)
+    tree.add(6)
+    tree.add(3)
+    tree.add(2)
+    tree.add(5)
+    tree.add(1)
+    actual = tree.find_maximum_value()
+    expected = 7
+    assert expected == actual
 
 @pytest.fixture
 def bst():
