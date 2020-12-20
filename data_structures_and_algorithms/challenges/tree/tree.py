@@ -1,3 +1,27 @@
+"""
+**Challenge 15**
+Create a Node class with properties: 
+    - value stored of node 
+    - left child node
+    - right child node
+Create a BinaryTree class with methods:
+    - preOrder
+    - inOrder
+    - postOrder 
+        *note: all return array of values in correct order.
+Create a BinarySearchTree class with methods:
+    - "add" which adds a new node with that value in the correct 
+      location in the binary search tree.
+    - "contains" which returns a boolean indicating whether or not
+      the value is in the tree at least once.
+
+**Challenge 16**
+Extend BinaryTree class:
+    - "find-maximum-value" which will return the maximum value stored
+      in the tree assuming all values stored in the tree will be numeric. 
+
+"""
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -10,6 +34,7 @@ class BinaryTree:
             self.root = Node(value)
         else:
             self.root = None
+        self.max_val = 0
 
     def preOrder(self):
         output = []
@@ -43,9 +68,18 @@ class BinaryTree:
                 
         _walk(self.root)
         return output
+    
+    
+    def max_checker(self,val):
+        if val > self.max_val:
+            self.max_val = val
+    
+    def find_maximum_value(self):
+        return self.max_val
 
 class BinarySearchTree(BinaryTree):
     def add(self, value):
+        self.max_checker(value)
         if not self.root:
             self.root = Node(value)
         else:
@@ -103,4 +137,5 @@ if __name__ == '__main__':
     bst.add(3)
     bst.add(8)
     bst.add(5)
-
+    x = bst.find_maximum_value()
+    print(f"Max value = {x}")

@@ -10,9 +10,16 @@ Code Challenge 15:
         - Can successfully add a left child and right child to a single root node
         - Can successfully return a collection from a preOrder traversal
         - Can successfully return a collection from an inOrder traversal
-        - Can successfully return a collection from a postOrder traversal        
+        - Can successfully return a collection from a postOrder traversal    
+
+Code Challenge 16:
+
+     Write tests to prove the following functionality:
+        - Can successfully determine the maximum value in a tree
+
 """
 
+# CC15
 def test_empty_tree():
     empty = BinaryTree()
     actual = empty.root
@@ -62,6 +69,23 @@ def test_contains(bst):
     actual_f = bst.contains(7)
     expected_f = False
     assert expected_f == actual_f
+
+
+## CC16
+def test_max_val(bst):
+    actual = bst.find_maximum_value()
+    expected = 9
+    assert expected == actual
+
+    bst.add(12)
+    bst.add(24)
+    bst.add(10)
+    bst.add(7)
+
+    actual_1 = bst.find_maximum_value()
+    expected_1 = 24
+    assert expected_1 == actual_1
+
 
 @pytest.fixture
 def bst():
