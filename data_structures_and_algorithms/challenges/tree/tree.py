@@ -32,9 +32,10 @@ class BinaryTree:
     def __init__(self, value=None):
         if value:
             self.root = Node(value)
+            self.max_val = value
         else:
             self.root = None
-        self.max_val = 0
+            self.max_val = 0
 
     def preOrder(self):
         output = []
