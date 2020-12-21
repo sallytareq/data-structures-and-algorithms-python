@@ -52,8 +52,8 @@ Available methods:
 
 - Find maximum value:
 
-![find_maximum_value](../../../assets/find_maximum_value.png)
+![find_maximum_value](../../../assets/find_maximum_value.jpg)
 
 - Breadth first:
 
-![breadth_first](../../../assets/breadth_first.png)
+![breadth_first](../../../assets/breadth_first.jpg)
