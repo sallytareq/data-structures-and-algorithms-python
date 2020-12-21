@@ -17,6 +17,11 @@ Code Challenge 16:
      Write tests to prove the following functionality:
         - Can successfully determine the maximum value in a tree
 
+Code Challenge 17:
+
+     Write tests to prove the following functionality:
+        - Can successfully return a collection from a breadth-first traversal 
+
 """
 
 # CC15
@@ -97,6 +102,24 @@ def test_max_val_with_init():
     expected = 7
     assert expected == actual
 
+def test_max_val_empty():
+    tree = BinaryTree()
+    actual = tree.find_maximum_value()
+    expected = "Tree is empty"
+    assert expected == actual
+
+def test_max_val_tree(maximum):
+    actual = maximum.find_maximum_value()
+    expected = 14
+    assert expected == actual
+
+# CC17
+def test_post_order(bt):
+    actual = bt.breadth_first()
+    expected = [1, 2, 3, 4, 5, 6, 7]
+    assert expected == actual
+
+
 @pytest.fixture
 def bst():
     bst = BinarySearchTree()
@@ -108,3 +131,27 @@ def bst():
     bst.add(8)
     bst.add(5)
     return bst 
+
+@pytest.fixture
+def bt():
+    bt = BinaryTree(1)
+    bt.root.left = Node(2)
+    bt.root.right = Node(3)
+    bt.root.left.left = Node(4)
+    bt.root.left.right = Node(5)
+    bt.root.right.left = Node(6)
+    bt.root.right.right = Node(7)
+    return bt
+
+@pytest.fixture
+def maximum():
+    maximum = BinaryTree(2)
+    maximum.root.left = Node(-1)
+    maximum.root.right = Node(3)
+    maximum.root.left.left = Node(7)
+    maximum.root.left.left.left = Node(10)
+    maximum.root.left.left.right = Node(5)
+    maximum.root.left.right = Node(14)
+    maximum.root.right.left = Node(6)
+    maximum.root.right.right = Node(9)
+    return maximum

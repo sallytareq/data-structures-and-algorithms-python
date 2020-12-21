@@ -26,6 +26,10 @@ Create a BinarySearchTree class with methods:
 Extend BinaryTree class:
     - "find-maximum-value" which will return the maximum value stored in the tree assuming all values stored in the tree will be numeric.
 
+**Challenge 17:**
+Extend BinaryTree class:
+    - "breadth_first" that will return a list of the values in the tree in the order they were encountered.
+
 ## Approach & Efficiency
 
 I used recursion and iteration to create and search in the tree.
@@ -42,3 +46,14 @@ Available methods:
 | `add(VAL)` | accepts a value, and adds a new node with that value in the correct location in the binary search tree |
 | `contains(VAL)` | accepts a value, and returns a boolean indicating whether or not the value is in the tree |
 | `find_maximum_value` | returns the maximum value stored in the tree |
+| `breadth_first` | returns an array of the values, ordered by level |
+
+## White Boards
+
+- Find maximum value:
+
+![find_maximum_value](../../../assets/find_maximum_value.jpg)
+
+- Breadth first:
+
+![breadth_first](../../../assets/breadth_first.jpg)
