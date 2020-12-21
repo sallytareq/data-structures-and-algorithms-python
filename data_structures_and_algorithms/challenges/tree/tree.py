@@ -21,7 +21,7 @@ Extend BinaryTree class:
       in the tree assuming all values stored in the tree will be numeric. 
 
 """
-
+from data_structures_and_algorithms.challenges.stacks_and_queues.stacks_and_queues import Queue
 class Node:
     def __init__(self, value):
         self.value = value
@@ -70,6 +70,29 @@ class BinaryTree:
         _walk(self.root)
         return output
     
+    def breadth_first(self):
+        queue = Queue()
+        output = []
+        def _walk(node):
+            if not node:
+                return
+
+            queue.enqueue(node)
+            if queue.front:
+                node = queue.front.value
+                output.append(queue.peek().value)
+
+                print(output)
+                if node.left:
+                    _walk(node.left)
+                if node.right:
+                    _walk(node.right)
+
+                queue.dequeue()
+                    
+     
+        _walk(self.root)
+        return output
     
     def max_checker(self,val):
         if val > self.max_val:
@@ -139,4 +162,19 @@ if __name__ == '__main__':
     bst.add(8)
     bst.add(5)
     x = bst.find_maximum_value()
+
+
+        #         1
+        #     2       3
+        #   4   5   6   7
+
+    hi = BinaryTree(1)
+    hi.root.left = Node(2)
+    hi.root.right = Node(3)
+    hi.root.left.left = Node(4)
+    hi.root.left.right = Node(5)
+    hi.root.right.left = Node(6)
+    hi.root.right.right = Node(7)
+
+    print(hi.breadth_first())
     print(f"Max value = {x}")
