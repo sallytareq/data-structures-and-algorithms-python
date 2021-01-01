@@ -30,6 +30,12 @@ def test_empty():
     expected = "Tree is empty"
     assert expected == actual
 
+def test_duplication(bt):
+    actual = fizz_buzz_tree(bt).preOrder()
+    expected = bt.preOrder()
+    assert expected != actual
+
+
 @pytest.fixture
 def bt():
     bt = BinaryTree(11)
