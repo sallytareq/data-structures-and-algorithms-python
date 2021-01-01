@@ -19,43 +19,33 @@ def fizz_buzz_tree(bt):
     if not bt.root:
         return "Tree is empty"
 
-    fb = bt
 
-    # bt_arr = bt.preOrder()
-    # fb_arr = []
-    # for x in bt_arr:
-    #     if x%3 == 0 and x%5 == 0:
-    #         fb_arr.append(Node("FizzBuzz"))
-    #     elif x%3 == 0:
-    #         fb_arr.append(Node("Fizz"))
-    #     elif x%5 == 0:
-    #         fb_arr.append(Node("Buzz"))
-    #     else:
-    #         fb_arr.append(Node(str(x)))
-
-    def _walk(node):
-        if node != None:
-            if node.value % 3 == 0 and node.value % 5 == 0:
-                node.value = "FizzBuzz"
-            elif node.value % 3 == 0:
-                node.value = "Fizz"
-            elif node.value % 5 == 0:
-                node.value = "Buzz"
+    def _walk(bt_node):
+        if bt_node != None:
+            if bt_node.value % 3 == 0 and bt_node.value % 5 == 0:
+                fb_node = Node("FizzBuzz")
+            elif bt_node.value % 3 == 0:
+                fb_node = Node("Fizz")
+            elif bt_node.value % 5 == 0:
+                fb_node = Node("Buzz")
             else:
-                node.value = str(node.value)
-        
-            # fb_arr.append(node.value)
-            _walk(node.left)
-            _walk(node.right)
-            
-    _walk(fb.root)
+                fb_node = Node(str(bt_node.value))
+
+            if bt_node.left: fb_node.left = _walk(bt_node.left)
+            if bt_node.right: fb_node.right = _walk(bt_node.right)
+
+            return fb_node
+
+    fb = BinaryTree()
+    fb.root = _walk(bt.root) 
     
-    # print(bt_arr)
-    # print(fb_arr)
     return fb
        
 
+
+
 if __name__ == "__main__":
+    
     bt = BinaryTree(11)
     bt.root.left = Node(15)
     bt.root.right = Node(3)
@@ -64,6 +54,8 @@ if __name__ == "__main__":
     bt.root.right.left = Node(6)
     bt.root.right.right = Node(2)
 
-    fizz_buzz_tree(bt)
+    fb = fizz_buzz_tree(bt)
+    print(fb.preOrder())
+    print(bt.preOrder())
 
     assert type(bt) == BinaryTree 
