@@ -14,3 +14,4 @@
 1. [Tree](data_structures_and_algorithms/challenges/tree/tree.py)
 1. [Fizz Buzz Tree](data_structures_and_algorithms/challenges/fizz_buzz_tree/fizz_buzz_tree.py)
 1. [Hash Table](data_structures_and_algorithms/challenges/hashtable/hashtable.py)
+1. [Tree Intersection](data_structures_and_algorithms/challenges/tree_intersection/tree_intersection.py)
