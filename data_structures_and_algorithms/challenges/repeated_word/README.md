@@ -1,6 +1,5 @@
 # Repeated Word
 
-
 ## Challenge Description
 
 **Code Challenge 31:**
@@ -10,5 +9,8 @@
 
 ## Approach & Efficiency
 
+Used a for loop, set() and regex to split the text and then search through it to solve the problem
 
-## Solution
+## Whiteboard
+
+![repeated_word](../../../assets/repeated_word.jpg)
