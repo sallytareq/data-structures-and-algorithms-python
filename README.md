@@ -16,3 +16,4 @@
 1. [Hash Table](data_structures_and_algorithms/challenges/hashtable/hashtable.py)
 1. [Repeated Word](data_structures_and_algorithms/challenges/repeated_word/repeated_word.py)
 1. [Tree Intersection](data_structures_and_algorithms/challenges/tree_intersection/tree_intersection.py)
+1. [Hashmap Left Join](data_structures_and_algorithms/challenges/left_join/left_join.py)
