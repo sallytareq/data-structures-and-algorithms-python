@@ -9,6 +9,10 @@ Challenge - 40:
         - The proper size is returned, representing the number of nodes in the graph
         - A graph with only one node and edge can be properly returned
         - An empty graph properly returns null
+
+Challenge - 41:
+    Write tests that prove:
+        -  two nodes as input and determines if a path exists between them
 """
 
 
