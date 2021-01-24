@@ -75,29 +75,6 @@ class BinaryTree:
                 
         _walk(self.root)
         return output
-    
-    # def breadth_first(self):
-    #     queue = Queue()
-    #     output = []
-    #     queue.enqueue(self.root)
-    #     def _walk(node):
-    #         if not node:
-    #             return
-    #         while queue.front:
-    #             node = queue.dequeue()s
-    #             output.append(node.value)
-    #             # print(node.value)
-    #             # print(output)
-    #             if node.left:
-    #                 # print(node.left.value)
-    #                 queue.enqueue(node.left)
-    #             if node.right:
-    #                 # print(node.right.value)
-    #                 queue.enqueue(node.right)
-    #             _walk(node.left)
-    #             _walk(node.right)                
-    #     _walk(self.root)
-    #     return output
 
     def breadth_first(self):
         if self.root:
@@ -113,13 +90,6 @@ class BinaryTree:
                     queue.enqueue(node.right)
             return output
         else: return "empty"
-    
-    # def max_checker(self,val):
-    #     if val > self.max_val:
-    #         self.max_val = val
-    
-    # def find_maximum_value(self):
-    #     return self.max_val
     
     def find_maximum_value(self):
         if not self.root:
@@ -179,98 +149,6 @@ class BinarySearchTree(BinaryTree):
                 current = current.right
         return boolean
 
-# def merge(bt1,bt2):
-#     if not bt1.root and not bt2.root:
-#         return "Invalid"
-    
-#     if not bt.root:
-#         return bt2
-    
-#     if not bt.root:
-#         return bt1
-    
-
-#     def _walk(node1,node2):
-
-#         new_node = Node(node1.value + node2.value)
-        
-#         if node1.left and node2.left:
-#             new_node.left = _walk(node1.left,node2.left)
-#         else:
-#             if node2.left:
-#                 new_node.left = node2.left
-#             if node1.left:
-#                 new_node.left = node1.left
-        
-#         if node1.right and node2.right:
-#             new_node.right = _walk(node1.right,node2.right)
-#         else:
-#             if node2.right:
-#                 new_node.right = node2.right
-#             if node1.right:
-#                 new_node.right = node1.right
-
-#         return new_node
-
-#     new = BinaryTree()
-#     new.root = _walk(bt1.root,bt2.root)
-#     return new
-
-def merge(bt1,bt2):
-
-    def _walk(node1,node2):
-
-        node1.value += node2.value
-        
-        if node1.left and node2.left:
-            _walk(node1.left,node2.left)
-        else:
-            if node2.left:
-                node1.left = node2.left
-
-        if node1.right and node2.right:
-            _walk(node1.right,node2.right)
-        else:
-            if node2.right:
-                node1.right = node2.right
-    _walk(bt1.root,bt2.root)
-    return bt1
-
-def sum_bt(bt1):
-    def _walk(node):
-        if node:
-            total = node.value
-            if node.left:
-                total += _walk(node.left)
-            if node.right:
-                total += _walk(node.right)
-            return total
-            
-    return _walk(bt1.root)
-
-def third_largest(bt):
-    if not bt.root:
-        return "Invalid"
-    
-    traversed = []
-    def _traversal(node):
-        if node:
-            _traversal(node.left)
-            traversed.append(node.value)
-            _traversal(node.right)
-
-    _traversal(bt.root)
-    print(traversed)
-    for x in range(0,len(traversed)):
-        for i in range(x+1, len(traversed)):
-            if traversed[x]>traversed[i]:
-                traversed[x],traversed[i] = traversed[i],traversed[x]
-    print(traversed)
-    
-    return traversed[len(traversed)-3]
-
-       
-
 
 if __name__ == '__main__':
 
@@ -302,59 +180,19 @@ if __name__ == '__main__':
         #   4   5   6   7
         # 8  9
 
-        #         1
-        #     2       3
-        #   4   5   6   7
-        # 8        1
 
-
-        #         2
-        #     1       3
-        #   7   14       9
-        # 10  5
-
-
-        #           3
-        #      3          6
-        #   11   19     6   16
-        # 18  5        1
 
     bt = BinaryTree(1)
     bt.root.left = Node(2)
     bt.root.right = Node(3)
     bt.root.left.left = Node(4)
     bt.root.left.left.left = Node(8)
-
+    bt.root.left.left.right = Node(9)
     bt.root.left.right = Node(5)
     bt.root.right.left = Node(6)
     bt.root.right.left.left = Node(1)
     bt.root.right.right = Node(7)
 
-    maximum = BinaryTree(2)
-    maximum.root.left = Node(1)
-    maximum.root.right = Node(3)
-    maximum.root.left.left = Node(7)
-    maximum.root.left.left.left = Node(10)
-    maximum.root.left.left.right = Node(5)
-    maximum.root.left.right = Node(14)
-    
-    maximum.root.right.right = Node(9) 
-    # [1,2,3,5,7,9,10,14]
-    # [3,3,6,]
-
-    print(bt.preOrder())
-    print(maximum.preOrder())
-    x = merge(bt,maximum)
-    print(x.preOrder())
-    # print(f"Max value = {x}")
-
-    bt1 = BinaryTree(1)
-    bt1.root.left = Node(2)
-    bt1.root.right = Node(3)
-    bt1.root.left.left = Node(4)
-    print(sum_bt(bt1))
-
-    print(third_largest(maximum))
 
 
 
