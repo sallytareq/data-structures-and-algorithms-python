@@ -31,8 +31,10 @@ def fizz_buzz_tree(bt):
             else:
                 fb_node = Node(str(bt_node.value))
 
-            if bt_node.left: fb_node.left = _walk(bt_node.left)
-            if bt_node.right: fb_node.right = _walk(bt_node.right)
+            if bt_node.left: 
+                fb_node.left = _walk(bt_node.left)
+            if bt_node.right: 
+                fb_node.right = _walk(bt_node.right)
 
             return fb_node
 

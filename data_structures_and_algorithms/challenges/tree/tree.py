@@ -75,39 +75,21 @@ class BinaryTree:
                 
         _walk(self.root)
         return output
-    
-    def breadth_first(self):
-        queue = Queue()
-        output = []
-        queue.enqueue(self.root)
-        def _walk(node):
-            if not node:
-                return
 
+    def breadth_first(self):
+        if self.root:
+            queue = Queue()
+            output = []
+            queue.enqueue(self.root)
             while queue.front:
                 node = queue.dequeue()
                 output.append(node.value)
-                # print(node.value)
-                # print(output)
                 if node.left:
-                    # print(node.left.value)
                     queue.enqueue(node.left)
                 if node.right:
-                    # print(node.right.value)
                     queue.enqueue(node.right)
-                
-                _walk(node.left)
-                _walk(node.right)                
-     
-        _walk(self.root)
-        return output
-    
-    # def max_checker(self,val):
-    #     if val > self.max_val:
-    #         self.max_val = val
-    
-    # def find_maximum_value(self):
-    #     return self.max_val
+            return output
+        else: return "empty"
     
     def find_maximum_value(self):
         if not self.root:
@@ -168,7 +150,6 @@ class BinarySearchTree(BinaryTree):
         return boolean
 
 
-
 if __name__ == '__main__':
 
     # 4, -1, 3, 9, 6, 5, 8
@@ -199,6 +180,8 @@ if __name__ == '__main__':
         #   4   5   6   7
         # 8  9
 
+
+
     bt = BinaryTree(1)
     bt.root.left = Node(2)
     bt.root.right = Node(3)
@@ -207,7 +190,96 @@ if __name__ == '__main__':
     bt.root.left.left.right = Node(9)
     bt.root.left.right = Node(5)
     bt.root.right.left = Node(6)
+    bt.root.right.left.left = Node(1)
     bt.root.right.right = Node(7)
 
-    print(bt.breadth_first())
-    print(f"Max value = {x}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
