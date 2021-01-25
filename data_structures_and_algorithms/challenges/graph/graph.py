@@ -15,9 +15,9 @@ class Graph:
 
     def add_edge(self, start_node, end_node, weight=1):
         if start_node not in self.adjacency_list:
-            self.adjacency_list[start_node]=[{'node': end_node, 'weight':weight}]
+            self.adjacency_list[f'{start_node}']=[{'node': end_node, 'weight':weight}]
         else:
-            self.adjacency_list[start_node].append({'node': end_node, 'weight':weight})
+            self.adjacency_list[f'{start_node}'].append({'node': end_node, 'weight':weight})
 
     def get_nodes(self):
         return self.adjacency_list.keys()
@@ -25,7 +25,7 @@ class Graph:
     def get_neighbors(self, node):
         output = []
         for x in self.adjacency_list[node]:
-            output.append(x['node'])
+            output.append(x)
         return output
 
     def size(self):
