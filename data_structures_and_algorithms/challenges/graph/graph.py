@@ -63,5 +63,3 @@ class Graph:
                     else:
                         return False
         return total
-
-
