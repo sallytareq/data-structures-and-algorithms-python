@@ -15,9 +15,9 @@ class Graph:
 
     def add_edge(self, start_node, end_node, weight=1):
         if start_node not in self.adjacency_list:
-            self.adjacency_list[f'{start_node}']=[{'node': end_node, 'weight':weight}]
+            self.adjacency_list[start_node]=[{end_node : weight}]
         else:
-            self.adjacency_list[f'{start_node}'].append({'node': end_node, 'weight':weight})
+            self.adjacency_list[start_node].append({end_node : weight})
 
     def get_nodes(self):
         return self.adjacency_list.keys()
@@ -52,3 +52,16 @@ class Graph:
         if end_node in connected: 
             return True
         return False
+
+    def get_edge(self, cities):
+        total = 0
+        for x in self.adjacency_list.keys():
+            for y in range(0,len(cities)):
+                if cities[y] == x.value:
+                    if self.adjacency_list[x][cities[y+1]]:
+                        total += self.adjacency_list[x][cities[y+1]]
+                    else:
+                        return False
+        return total
+
+
