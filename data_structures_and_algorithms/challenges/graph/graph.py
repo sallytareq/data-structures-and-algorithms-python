@@ -52,3 +52,5 @@ class Graph:
         if end_node in connected: 
             return True
         return False
+
+    
